@@ -2,44 +2,82 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Introdução ao Bootstrap</title>
+    <title>Introdução ao Bootstrap 4</title>
 
-    <!-- 1° importar css -->
+    <!-- 1º Importar o CSS -->
     <link rel="stylesheet" href="bs4/css/bootstrap.css">
 
-    <!-- 2° importar js -->
+    <!-- 2º Importar o jQuery -->
     <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <!-- 3° impotar o bootstrap -->
+    <!-- 3º Importar o Bootstrap -->
     <script src="bs4/js/bootstrap.js" charset="utf-8"></script>
 
-    <!-- 4° Implementar seu código -->
+    <!-- 4º Implementar seu código -->
     <script type="text/javascript">
-
     $(document).ready(function() {
-
+      // alert("Importação ok!");
     });
-
     </script>
+
   </head>
   <body>
 
-  </body>
-    <!-- Definir tamanho do seu site -->
+    <!-- Definir o tamanho do seu site -->
     <div class="container">
 
-        <h2>Olá mundo:D</h2>
+      <h2>Olá Mundo :D</h2>
 
-        <div class="row">
-            <div class="col-sm-3">
-              Menu Principal
-            </div>
-            <div class="col-sm">
-              Segundo
-            </div>
-            <div class="col-sm">
-              Terceiro
-            </div>
+      <div class="row">
+
+        <div class="col-sm-2">
+          Menu Principal
         </div>
+
+        <div class="col-sm">
+
+          <h5>Exemplo de tabela</h5>
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <!-- Você pode centralizar as coisas ou jogar para direita com as classes
+        text-center e text-right -->
+        <div class="col-sm-2 text-center">
+          Lateral
+        </div>
+
+      </div>
+
     </div>
 
+  </body>
 </html>
