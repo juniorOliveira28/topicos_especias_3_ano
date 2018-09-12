@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Atividade 01</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+      $("#lampada").mouseenter(function() {
+
+        var img1 = $(this).attr('src');
+        if(img1 == 'http://i.stack.imgur.com/MRjsF.jpg'){
+          $("#lampada").attr('src', 'http://i.stack.imgur.com/MRjsF.jpg');
+        }else{
+            $("#lampada").attr('src', 'http://i.stack.imgur.com/ybxlO.jpg');
+        }
+      });
+      $("#lampada").mouseleave(function() {
+        var img2 = $(this).attr('src');
+        if(img2 == 'http://i.stack.imgur.com/ybxlO.jpg'){
+
+          $("#lampada").attr('src', 'http://i.stack.imgur.com/b983w.jpg');
+
+        }
+      });
+
+      $("#lampada").click(function(){
+        $("#lampada").attr('src', 'http://i.stack.imgur.com/MRjsF.jpg');
+    });
+    });
+
+    </script>
+
+  </head>
+  <body>
+    <img src="http://i.stack.imgur.com/b983w.jpg" id="lampada" alt="">
+  </body>
+</html>

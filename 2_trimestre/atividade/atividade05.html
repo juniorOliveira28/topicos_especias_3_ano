@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Atividade 05.5</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <style media="screen">
+            .center {
+              border: 2px solid #938A8A;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 45%;
+              border-radius: 5px;
+            }
+            </style>
+    <script>
+
+
+      $(document).ready( function(){
+
+        $("#aba1").click(function(){
+
+          $("#p1").show();
+
+          $("#p2").hide();
+          $("#p3").hide();
+        });
+
+        $("#aba2").click(function(){
+
+          $(".aba").hide();
+
+          $("#p2").fadeIn();
+        });
+
+        $("#aba3").click(function(){
+          $(".aba").hide();
+          $("#p3").fadeIn();
+        });
+
+        $("#cadastro").submit(function(e){
+
+            $(".obrigatorio").each(function() {
+
+              if( $(this).val() == "" ){
+
+                $(this).next("span").text("Este campo é obrigatório!");
+
+
+                e.preventDefault();
+              }
+            });
+        });
+
+      } );
+    </script>
+
+    <style media="screen">
+    span{
+        color: red;
+    }
+      .aba{
+        display: none;
+      }
+    </style>
+
+
+  </head>
+  <body>
+<div class="center">
+
+    <a href="#" id="aba1">Dados Pessoais</a>
+    <a href="#" id="aba2">Formação Acadêmica</a>
+    <a href="#" id="aba3">Dados Profissionais</a>
+
+      <div class="aba" id="p1">
+
+        <form id="cadastro" action="" method="post">
+
+          <label for="">Nome:</label><br>
+          <input class="obrigatorio" type="text" name="nome" value="" placeholder="Digite seu nome">
+          <span></span>
+          <br>
+
+          <label for="">Telefone:</label><br>
+          <input class="obrigatorio" type="fone" name="fone" value="">
+          <span></span>
+          <br>
+
+          <label for="">Cidade:</label><br>
+          <select name="cidade" class="obrigatorio">
+               <option value="">Selecione uma cidade</option>
+               <option value="1">Maringá</option>
+               <option value="3">Cianorte</option>
+               <option value="4">Tapejara</option>
+               <option value="2">Paranavaí</option>
+          </select>
+          <span></span>
+          <br>
+
+          <input type="submit" value="Enviar">
+          <input type="reset"  value="Limpar">
+
+        </form>
+      </div>
+
+      <div class="aba" id="p2">
+
+        <form class="" action="" method="get">
+          <label for="">Nivel de formação:</label><br>
+          <input type="text" name="formacao" value=""><br><br>
+
+          <label for="">Especialização:</label><br>
+          <input type="text" name="espec" value=""><br><br>
+
+
+        </form>
+      </div>
+
+      <div class="aba" id="p3">
+        <form class="" action="" method="get">
+          <label for="">Empresa:</label><br>
+          <input type="text" name="empresa" value=""><br><br>
+
+          <label for="">Data de Entrada:</label><br>
+          <input type="text" name="dtEntra" value=""><br><br>
+
+          <label for="">Data de Saída:</label><br>
+          <input type="text" name="dtSaida" value=""><br><br>
+
+          <label for="">Função:</label><br>
+          <input type="text" name="funcao" value=""><br><br>
+
+          <br><br>
+          <input type="submit" name="" value="Enviar">
+
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
