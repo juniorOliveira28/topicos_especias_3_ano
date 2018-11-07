@@ -16,3 +16,6 @@ class Ajuda(TemplateView):
 
 class Contato(TemplateView):
     template_name = 'contato.html'
+
+class Sobre(TemplateView):
+    template_name = 'sobre.html'

@@ -1,1 +1,130 @@
-https://docs.google.com/document/d/1V5wUiq1Oby-OBzwWG-53duH8EfSUN8xQwxIsuR7q-38/
+Link: https://docs.google.com/document/d/1V5wUiq1Oby-OBzwWG-53duH8EfSUN8xQwxIsuR7q-38/
+
+
+Tecnologia em Análise e Desenvolvimento de Sistemas
+Tópicos Especiais em Tecnologia da Informação    
+Prof. Rafael Henrique Dalegrave Zottesso
+
+Programação para Web com Python e Django
+
+
+Links úteis
+Python 3: https://www.python.org/download/releases/3.0/
+Django: https://www.djangoproject.com/
+
+Django
+Por onde começar: https://www.djangoproject.com/start/
+Documentação v2.0.6: https://docs.djangoproject.com/pt-br/2.0/
+Tutorial: https://docs.djangoproject.com/pt-br/2.0/intro/tutorial01/
+Class-based views: https://docs.djangoproject.com/pt-br/2.0/topics/class-based-views/
+
+
+
+
+Trabalhar no ambiente virtual Django2:
+$ source /opt/virtualenv/django2/bin/activate
+
+Criando um projeto:
+$ django-admin startproject Adocao
+
+No Adocao/settings.py alterar configurações para o português do Brasil:
+LANGUAGE_CODE = 'pt-br'
+TIME_ZONE = 'America/Sao_Paulo'
+
+Executar a criação de tabelas no banco e do conteúdo necessário para o gerenciamento do próprio Django
+python3 manage.py migrate
+
+Iniciar o servidor Django
+$ python3 manage.py runserver (padrão porta 8000)
+
+Se preferir, pode utilizar outro IP ou porta
+$ python3 manage.py runserver 8080 (para definir, por exemplo, a porta 8080)
+$ python3 manage.py runserver 0:8000 (para rodar na rede local/Internet)
+
+
+Criando seu primeiro módulo (app) no projeto
+$ python3 manage.py startapp animais
+
+Registre seu app no seu projeto
+É necessário ativar seu app no projeto lá no arquivo Adocao/settings.py. 
+
+INSTALLED_APPS = [
+    'animais.apps.AnimaisConfig',
+    'django.contrib.admin',
+    ...
+
+Criando a primeira tela com classes (método mais utilizado desde a versão 2), conhecido como Class-based Views para realizar as tarefas do seu sistema, como inserir, cadastrar, exibir uma página, etc.
+No arquivo Adocao/animais/views.py importe a classe genérica para exibir uma página simples e depois crie sua primeira classe para “renderizar” um template (HTML):
+
+from django.views.generic import TemplateView
+
+# Create your views here.
+class IndexView(TemplateView):
+    template_name = "index.html"
+
+Como funcionam as classes dentro do “views”:
+class NomeDaPaginaView(ClassePai):
+    template_name = "sua_pagina.html"
+
+Criando um template em HTML para ser usado pelas Views
+Primeiro altere a configuração do arquivo Adocao/Adocao/settings.py lá na configuração dos templates:
+
+Procure por: 'DIRS': [],
+E troque por: 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+Agora crie uma pasta chamada 'templates' dentro da pasta da sua aplicação ‘animais’. Dentro dela você pode criar as páginas HTML que vai usar como suas telas (templates). Por exemplo: animais/templates/index.html
+
+Definindo as URLS do seu sistema
+Por padrão, os endereços ficam registrados nos arquivos urls.py. Cada app pode ter seus próprios endereços e o seu Projeto (Adocao) também pode ter as suas. 
+
+Primeiro crie o arquivo “urls.py” dentro do seu app: animais/urls.py. 
+
+Faça a importação da biblioteca que gerencia as urls e das classes/métodos criados nos views. 
+
+from django.urls import path
+from .views import IndexView
+
+Crie uma url dentro do vetor de urls desse app. Os parâmetros são (nessa ordem): endereço, método/classe do views, nome da url no sistema.
+
+urlpatterns = [
+    path('', IndexView.as_view(), name="index"),
+]
+
+Exemplo:
+    path('inicio', IndexView.as_view(), name="index"),
+
+Adicione as URLS do app como URLS do projeto
+Edite o arquivo Adocao/urls.py e inclua a biblioteca “include” depois de importar a biblioteca “path”.
+
+from django.urls import path, include
+
+Dentro da sua lista de urls, adicione um nome padrão para importar todas as suas urls do app
+
+urlpatterns = [
+    path('', include('animais.urls')),
+    path('admin/', admin.site.urls),
+]
+
+
+Definindo o diretório STATIC para armazenar seu CSS, imagens, JS, etc.
+Dentro do diretório Adocao crie uma pasta chamada “static”. 
+
+Ela vai armazenar todo esse seu conteúdo. Somente os arquivos HTML ficam dentro da pasta template de cada app porque eles podem ser exclusivos daquele app. A ideia da pasta static é disponibilizar as imagens, js e css para todos os apps e não somente um.
+
+No arquivo Adocao/settings.py acrescente uma configuração para o Django procurar a pasta static na raiz do seu projeto (você pode ter várias pastas statics no seu PC):
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+Na primeira linha de todo arquivo HTML você precisa importar a pasta static do seu projeto:
+{% load static %}
+
+Agora é só usar conforme o exemplo abaixo para referenciar o local dela:
+<img src="{% static "img/example.jpg" %}" alt="My image"/>
+
+
+
+
+
+
+
