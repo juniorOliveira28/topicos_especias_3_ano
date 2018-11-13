@@ -57,7 +57,6 @@ class CidadeUpdate(UpdateView):
 
 
 class CidadeDelete(DeleteView):
-
     model = Cidade
     success_url = reverse_lazy('listar-cidade')
     template_name = 'form_delete.html'
