@@ -40,3 +40,38 @@ class CidadeCreate(CreateView):
     template_name = 'form.html'
     #  define quais campos vão estar no formulário
     fields = ['nome', 'estado']
+
+
+class PessoaCreate(CreateView):
+    model = Pessoa
+    success_url = reverse_lazy(Index)
+    template_name = 'form.html'
+    fields = ['nome', 'emails', 'nascimento', 'cidade']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #
