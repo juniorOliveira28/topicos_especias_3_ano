@@ -1,0 +1,38 @@
+{% extends 'modelo.html' %}
+
+{% load bootstrap4 %}
+
+{% block cabecalho %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+
+  <div class="row pt-5">
+
+    <div class="col-sm p-5">
+
+
+      <form method="post" >
+        <h2>Excluir Registro</h2>
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-danger">
+               Excluir
+        </button>
+      </form>
+
+    </div>
+
+    <div class="col-sm p-5">
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

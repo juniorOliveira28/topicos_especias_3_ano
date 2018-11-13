@@ -8,6 +8,9 @@ from .models import *
 #  importar views para inserir alterar ecluir
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+# importar a view para listar classes
+from django.views.generic.list import ListView
+
 # importar a função para gerar endereços das urls inteiras
 from django.urls import reverse_lazy
 
@@ -35,11 +38,34 @@ class CidadeCreate(CreateView):
     # identificar o modelo
     model = Cidade
     #  define para onde vai redirecionar depois de inserir
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar-cidade')
     # define qual o templae será usado
     template_name = 'form.html'
     #  define quais campos vão estar no formulário
     fields = ['nome', 'estado']
+
+
+class CidadeUpdate(UpdateView):
+    # identificar o modelo
+    model = Cidade
+    #  define para onde vai redirecionar depois de inserir
+    success_url = reverse_lazy('listar-cidade')
+    # define qual o templae será usado
+    template_name = 'form.html'
+    #  define quais campos vão estar no formulário
+    fields = ['nome', 'estado']
+
+
+class CidadeDelete(DeleteView):
+
+    model = Cidade
+    success_url = reverse_lazy('listar-cidade')
+    template_name = 'form_delete.html'
+
+
+class CidadeList(ListView):
+    model = Cidade
+    template_name = 'cidade_list.html'
 
 
 class PessoaCreate(CreateView):
@@ -47,6 +73,25 @@ class PessoaCreate(CreateView):
     success_url = reverse_lazy(Index)
     template_name = 'form.html'
     fields = ['nome', 'emails', 'nascimento', 'cidade']
+
+
+class PessoaUpdate(UpdateView):
+    model = Pessoa
+    success_url = reverse_lazy(Index)
+    template_name = 'form.html'
+    fields = ['nome', 'emails', 'nascimento', 'cidade']
+
+
+class PessoaDelete(DeleteView):
+    model = Pessoa
+    success_url = reverse_lazy(Index)
+    template_name = 'form_delete.html'
+
+
+class PessoaList(ListView):
+    model = Pessoa
+    success_url = reverse_lazy(Index)
+    template_name = 'form_delete.html'
 
 
 

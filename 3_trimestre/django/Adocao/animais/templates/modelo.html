@@ -68,20 +68,16 @@
                 Sobre
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'inserir-cidade' %}">
-                <i class="fa fa-align-left" aria-hidden="true"></i>
-                Sobre
-              </a>
-            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Cadastros
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Cidade</a>
-                <a class="dropdown-item" href="#">Estado</a>
-                <a class="dropdown-item" href="#">Pessoa</a>
+                <a class="dropdown-item" href="{% url 'inserir-cidade' %}">Cadastro Cidade</a>
+
+                <a class="dropdown-item" href="{% url 'inserir-pessoa' %}">Cadastro Pessoa</a>
+                <a class="dropdown-item" href="{% url 'listar-cidade' %}">Listar Cidade</a>
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
