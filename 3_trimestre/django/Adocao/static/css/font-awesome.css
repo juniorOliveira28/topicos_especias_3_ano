@@ -71,10 +71,10 @@
 
 }
  .form-group{
-   width: 30%;
-   border: solid black 1px;
+   width: auto;
+   /*border: solid black 1px;*/
    border-radius: 10px;
-   padding: 30px;
+   padding: 20px;
    margin: auto;
 
  }

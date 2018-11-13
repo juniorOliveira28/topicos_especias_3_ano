@@ -47,13 +47,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'index' %}">
               <i class="fa fa-home" aria-hidden="true"></i>
-              Página inicial
+              Home
               <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                Procurar um animal
+                Procurar
               </a>
             </li>
             <li class="nav-item">
@@ -68,6 +68,25 @@
                 Sobre
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'inserir-cidade' %}">
+                <i class="fa fa-align-left" aria-hidden="true"></i>
+                Sobre
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cadastros
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Cidade</a>
+                <a class="dropdown-item" href="#">Estado</a>
+                <a class="dropdown-item" href="#">Pessoa</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+
           </ul>
         </div>
 
@@ -144,36 +163,37 @@
 
     {% block rodape %}
     <!-- Footer -->
-    <div id="rodape">
-      <footer class="py-5 bg-black">
+    <footer class="py-5 bg-black">
+      <div id="rodapea">
         <div class="container">
           <p class="m-0 text-center text-white small">Copyright &copy; OliveiraJunior.com.br - 2018</p>
         </div>
         <!-- /.container -->
-      </footer>
-      {% endblock %}
+      </div>
+    </footer>
+    {% endblock %}
 
-      <!-- Bootstrap core JavaScript -->
-      <script src="{% static 'js/jquery.js' %}"></script>
-      <script src="{% static 'js/popper.js' %}"></script>
-      <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 
-      <!-- Só existe para garantir que o bloco js vai ser executado
-      depois de importar as bibliotecas -->
-      {% block js %}
-      <script type="text/javascript">
-      $(document).ready(function() {
+    <!-- Só existe para garantir que o bloco js vai ser executado
+    depois de importar as bibliotecas -->
+    {% block js %}
+    <script type="text/javascript">
+    $(document).ready(function() {
 
-        $("#btn-procurar").click(function(event) {
-          /* Act on the event */
-          $("#div-procurar").fadeToggle();
-
-        });
+      $("#btn-procurar").click(function(event) {
+        /* Act on the event */
+        $("#div-procurar").fadeToggle();
 
       });
-      </script>
-      {% endblock %}
-      <div>
-        </body>
 
-        </html>
+    });
+    </script>
+    {% endblock %}
+
+  </body>
+
+  </html>

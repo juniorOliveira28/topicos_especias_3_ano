@@ -10,5 +10,7 @@ urlpatterns = [
     path('', Index.as_view(), name="index" ),
     path('ajuda/', Ajuda.as_view(), name="ajuda"),
     path('contato/', Contato.as_view(), name="contato"),
-    path('sobre/', Sobre.as_view(), name="sobre")
+    path('sobre/', Sobre.as_view(), name="sobre"),
+
+    path('nova/cidade/', CidadeCreate.as_view(), name ='inserir-cidade'),   
 ]
