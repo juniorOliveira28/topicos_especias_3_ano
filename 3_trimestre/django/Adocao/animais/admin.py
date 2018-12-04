@@ -8,3 +8,4 @@ from .models import *
 
 admin.site.register(Cidade)
 admin.site.register(Pessoa)
+admin.site.register(Animal)

@@ -69,28 +69,76 @@ class CidadeList(ListView):
 
 class PessoaCreate(CreateView):
     model = Pessoa
-    success_url = reverse_lazy(Index)
+    success_url = reverse_lazy("listar-pessoa")
     template_name = 'form.html'
     fields = ['nome', 'emails', 'nascimento', 'cidade']
 
 
 class PessoaUpdate(UpdateView):
     model = Pessoa
-    success_url = reverse_lazy(Index)
+    success_url = reverse_lazy('listar-pessoa')
     template_name = 'form.html'
     fields = ['nome', 'emails', 'nascimento', 'cidade']
 
 
 class PessoaDelete(DeleteView):
     model = Pessoa
-    success_url = reverse_lazy(Index)
+    success_url = reverse_lazy('listar-pessoa')
     template_name = 'form_delete.html'
+
 
 
 class PessoaList(ListView):
     model = Pessoa
-    success_url = reverse_lazy(Index)
+    template_name = 'pessoa_list.html'
+
+class AnimalCreate(CreateView):
+    model = Animal
+    success_url = reverse_lazy('listar-animal')
+    template_name = 'form.html'
+    fields = ['nome', 'raca', 'idade', 'porte', 'tipo']
+
+
+class AnimalUpdate(UpdateView):
+    model = Animal
+    success_url = reverse_lazy('listar-animal')
+    template_name = 'form.html'
+    fields = ['nome', 'raca', 'idade', 'porte', 'tipo']
+
+
+class AnimalDelete(DeleteView):
+    model = Animal
+    success_url = reverse_lazy('listar-animal')
     template_name = 'form_delete.html'
+
+
+class AnimalList(ListView):
+    model = Animal
+    template_name = 'animal_list.html'
+
+class TipoCreate(CreateView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipo')
+    template_name = 'form.html'
+    fields = ['nome']
+
+
+class TipoUpdate(UpdateView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipo')
+    template_name = 'form.html'
+    fields = ['nome']
+
+
+class TipoDelete(DeleteView):
+    model = Tipo
+    success_url = reverse_lazy('listar-tipo')
+    template_name = 'form_delete.html'
+
+
+class TipoList(ListView):
+    model = Tipo
+    template_name = 'tipo_list.html'
 
 
 

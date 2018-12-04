@@ -20,3 +20,15 @@ class Pessoa(models.Model):
     def __str__(self):
         # faz um cast da data para string
         return self.nome + ' - ' + str(self.nascimento)
+
+class Tipo(models.Model):
+    nome = models.CharField(max_length = 50)
+    def __str__(self):
+        return self.nome
+
+class Animal(models.Model):
+    nome = models.CharField(max_length = 50)
+    raca = models.CharField(max_length = 52)
+    idade = models.CharField(max_length = 52)
+    porte = models.CharField(max_length = 50)
+    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)

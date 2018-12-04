@@ -74,12 +74,26 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'inserir-cidade' %}">Cadastro Cidade</a>
-
                 <a class="dropdown-item" href="{% url 'inserir-pessoa' %}">Cadastro Pessoa</a>
-                <a class="dropdown-item" href="{% url 'listar-cidade' %}">Listar Cidade</a>
+                <a class="dropdown-item" href="{% url 'inserir-tipo' %}">Cadastro Tipo</a>
+                <a class="dropdown-item" href="{% url 'inserir-animal' %}">Cadastro Animal</a>
 
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+
+
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Listar
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item" href="{% url 'listar-cidade' %}">Listar Cidade</a>
+                <a class="dropdown-item" href="{% url 'listar-pessoa' %}">Listar Pessoas</a>
+                <a class="dropdown-item" href="{% url 'listar-tipo' %}">Listar Tipos</a>
+                <a class="dropdown-item" href="{% url 'listar-animal' %}">Listar Animais</a>
+
+
               </div>
             </li>
 
@@ -112,7 +126,7 @@
       <div class="masthead-content">
         <div class="container">
           <h1 class="masthead-heading mb-0">Adote um animal</h1>
-          <img class="img-fluid.max-width: 100%" src="{% static 'img/fundo.jpg' %}" alt="">
+          <img class="img-fluid.max-width: 100%" src="{% static 'img/cao.jpg' %}" alt="">
           <h2 class="masthead-subheading mb-0">ou divulgue aqui se você quer doar algum!</h2>
 
           <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">
